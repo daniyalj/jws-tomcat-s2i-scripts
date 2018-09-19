@@ -41,6 +41,9 @@ if [ -f "$LOCAL_SOURCE_DIR/pom.xml" ]; then
   # Append user-supplied arguments (CLOUD-412)
   MAVEN_ARGS="$MAVEN_ARGS --batch-mode -Djava.net.preferIPv4Stack=true ${MAVEN_ARGS_APPEND}"
 
+  cp -R /tmp/src/.??* $LOCAL_SOURCE_DIR
+  cp -ad /tmp/src/* $LOCAL_SOURCE_DIR
+
   echo "Found pom.xml... attempting to build with 'mvn ${MAVEN_ARGS}'"
   echo "Using MAVEN_OPTS '${MAVEN_OPTS}'"
 
